@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body
+          {
+              background-color: rgb(202, 54, 54);
+              color: white;
+              text-align: center;
+              padding-top: 100px;
+
+          }   
+
+        body *
+        {
+            margin-top: 15px;
+
+        }
+
+        button
+        {
+           color: rgb(202, 54, 54);
+           font-size: 1.2em;
+           width: 70px;
+           cursor: pointer;
+
+        }   
+        div
+        {
+            border: 1px solid silver;
+            max-width: 300px;
+            margin: auto;
+            padding-bottom: 15px;
+        }
+     
+    </style>
+</head>
+<body>
+
+    <div>
+        <input type="number" id="price" placeholder="Price">
+            <br>
+        <input type="number" id="fnumber" placeholder="How many person ? ">
+    
+        <details>
+            <summary>  Tips  </summary>
+            <input type="number" id="tips" placeholder="Value">
+    
+        </details>
+    
+        <button onclick="SplitBill()"> Split </button>
+        <button onclick="window.location.reload()"> Reset </button>
+        <p id="label">   </p>   
+    
+    </div>
+    
+
+    <script>
+        var price = document.getElementById('price');
+        var Fnumber = document.getElementById('fnumber');
+        var Tips = document.getElementById('tips');
+        var label = document.getElementById('label');
+        function SplitBill()
+        {
+            var PriceValue= Number(price.value);
+            var FnumberValue=Number(Fnumber.value);
+            var TipsValue= Number(Tips.value);
+            var result;
+            if(TipsValue)
+            {
+              result=(PriceValue+TipsValue)/FnumberValue;
+            }
+            else
+            {
+                result= PriceValue/FnumberValue;
+
+            }
+
+            label.innerText="Each one should pay $ " + result.toFixed(1);
+        }
+
+
+    </script>
+</body>
+</html>
